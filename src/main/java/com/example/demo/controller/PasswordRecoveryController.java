@@ -14,7 +14,7 @@ public class PasswordRecoveryController {
 
     @PostMapping("/recover")
     public String recoverPassword(@RequestBody String email) {
-        User user = userRepository.findByEmail(email).orElse(null);
+        User user = userRepository.findByUsername(email).orElse(null);
         if (user == null) {
             return "Email not found!";
         }
